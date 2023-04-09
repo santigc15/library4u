@@ -1,8 +1,7 @@
 <?php
 session_start();
-if (isset($_SESSION["username"])) {
-    $sessionid = $_SESSION["username"];
-} else {
+if (!isset($_SESSION["username"])) {
+
     header("Location: ../");
 }
 ?>
@@ -36,7 +35,7 @@ if (isset($_SESSION["username"])) {
             <span>LIBRARY4U</span>
         </div>
         <div class="header-description">
-            <span>Welcome <?php echo "$sessionid" ?></span>
+            <span>Welcome <?php echo $_SESSION["username"] ?></span>
         </div>
     </header>
     <section id="profile"></section>

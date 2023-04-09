@@ -108,6 +108,8 @@ public function checkUser($dbh, $username, $password)
 
         session_start();
         $_SESSION["id"]=$usuario["id"];
+        $_SESSION["email"]=$usuario["email"];
+        $_SESSION["telefono"]=$usuario["telefono"];
         $_SESSION["username"]=$username;
         return $_SESSION["username"];
     } else {

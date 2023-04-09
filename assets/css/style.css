@@ -230,3 +230,37 @@ form input[type="submit"]:hover {
 input::placeholder {
     color: #6ba048;
 }
+
+
+.delete-container {
+    position: relative;
+    top: 16vh;
+    width: 40vmin;
+    height: 5vmin;
+    min-width: 300px;
+    min-height: 40px;
+    margin: 1vmin auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+
+
+
+
+.delete-container span {
+    margin: 0 auto 5px;
+    color: #fff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+#yesbtn, #nobtn {
+    margin-top:2vmin;
+}
+.one {
+    margin: 0 auto;
+}

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2023 at 04:13 AM
+-- Generation Time: Apr 09, 2023 at 05:08 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -68,9 +68,8 @@ INSERT INTO `usuarios` (`id`, `username`, `email`, `telefono`, `password`, `perf
 (17, 'martacortazar', 'marta@gmail.com', '656894712', '$2y$10$bjc7xnQQea9iAwZKnCHwzOz8JmmurvQRZVekMWu8GDgjfGMR9bJv2', 1),
 (18, 'Lorenagomez', 'lorena@gmail.com', '626585652', '$2y$10$biT6gzPD0Rf5WznBtGNodeEYzQFUv.pTxhf3.ilOCypUUs5NArxdO', 1),
 (19, 'Claudiagamez', 'claudia@gmail.com', '686123478', '$2y$10$p55JQr0l3UYYn8lmBqavjO572.OdgfKDBarG06yPh6bFHR0YU9l5O', 1),
-(20, 'auroramartin', 'aurora@gmail.com', '625236325', '$2y$10$IzqxJM4EBWAKeVpOerY79O7cSEczkcUQ6lvk99qNJ146.HEEqqUx2', 1),
-(31, 'carlotaperez', 'carlota@gmail.com', '654321987', '$2y$10$X4DNKKTTZpTel23MdWwvMe/2vh/nooMtQ4nxghWnQDiR4bXzbXIMe', 1),
-(32, 'gabriela21', 'gabriela@gmail.com', '628986532', '$2y$10$Dk0bpU88xq5jdCTVOkG8fOxU/q/8EqiwUvmQbIPVtidJf74yE2.K6', 1);
+(31, 'carlotaperez', 'carlota@gmail.com', '654321987', '$2y$10$7G.lNu9n2p1Mts8Ve2TfFeqyoNL1MDrk5Kj2leU4vlG/Q/BK4UEQS', 1),
+(34, 'auroramartin', 'aurora@gmail.com', '654159753', '$2y$10$qh23Yn01jwSXOiWHz4TrweZoO3y24SpTG2SxnZEQwpHhF/WE1Rmge', 1);
 
 --
 -- Indexes for dumped tables
@@ -102,7 +101,7 @@ ALTER TABLE `libros`
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

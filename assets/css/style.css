@@ -115,7 +115,7 @@ section {
     margin: 0 auto;
 }
 
-.profile-buttons-container {
+.profilebuttonscontainer {
     position: relative;
     top: 10vh;
 
@@ -131,9 +131,20 @@ section {
     margin: 10px 10px;
 }
 
-.modify-button,
-.change-button,
+
 .delete-button {
+    padding: 10px 20px;
+    font-size: 1.3em;
+    margin: 10px 10px;
+}
+
+
+.change-button {
+    padding: 10px 20px;
+    font-size: 1.3em;
+    margin: 10px 10px;
+}
+.modify-button {
     padding: 10px 20px;
     font-size: 1.3em;
     margin: 10px 10px;
@@ -245,9 +256,6 @@ input::placeholder {
     justify-content: center;
 
 }
-
-
-
 
 
 .delete-container span {

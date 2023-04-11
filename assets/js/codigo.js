@@ -1,4 +1,29 @@
 window.onload = function () {
+
+    fetch('pdfAdmin.php')
+        .then(response => response.text())
+        .then(data => {
+            var contenido = document.getElementById('profile');
+            contenido.innerHTML = data;
+        });
+
+
+    var miHome = document.getElementById('home');
+    console.log(miHome);
+    miHome.onclick = function (event) {
+        event.preventDefault();
+        fetch('pdfAdmin.php')
+            .then(response => response.text())
+            .then(data => {
+
+                var contenido = document.getElementById('profile');
+                contenido.innerHTML = "";
+                contenido.innerHTML = data;
+            })
+    }
+
+
+
     var miEnlace = document.getElementById('enlace');
     miEnlace.onclick = function (event) {
         event.preventDefault();
@@ -7,6 +32,7 @@ window.onload = function () {
             .then(data => {
 
                 var contenido = document.getElementById('profile');
+                contenido.innerHTML = "";
                 contenido.innerHTML = data;
                 //------modificar perfil
                 var miPerfil = document.getElementById('modifyProfile');
@@ -48,12 +74,7 @@ window.onload = function () {
 
     }
 
-    var miHome = document.getElementById('home');
-    miHome.onclick = function (event) {
-        event.preventDefault();
-        var contenido = document.getElementById('profile');
-        contenido.innerHTML = "";
-    }
+
 
 
 

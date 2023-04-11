@@ -118,7 +118,14 @@ section {
 .profilebuttonscontainer {
     position: relative;
     top: 10vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
 
+.pdfbuttonscontainer {
+    position: relative;
+    top: 10vh;
     display: flex;
     flex-direction: column;
     margin: 0 auto;

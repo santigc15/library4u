@@ -5,23 +5,12 @@ window.onload = function () {
         .then(data => {
             var contenido = document.getElementById('profile');
             contenido.innerHTML = data;
+
+            pdfupload();
+
+
+
         });
-
-
-    var miHome = document.getElementById('home');
-    console.log(miHome);
-    miHome.onclick = function (event) {
-        event.preventDefault();
-        fetch('pdfAdmin.php')
-            .then(response => response.text())
-            .then(data => {
-
-                var contenido = document.getElementById('profile');
-                contenido.innerHTML = "";
-                contenido.innerHTML = data;
-            })
-    }
-
 
 
     var miEnlace = document.getElementById('enlace');
@@ -34,6 +23,8 @@ window.onload = function () {
                 var contenido = document.getElementById('profile');
                 contenido.innerHTML = "";
                 contenido.innerHTML = data;
+
+
                 //------modificar perfil
                 var miPerfil = document.getElementById('modifyProfile');
                 miPerfil.onclick = function (event) {
@@ -56,7 +47,7 @@ window.onload = function () {
 
                         })
                 }
-                //------modificar password
+                //------eliminar perfil
                 var miDelete = document.getElementById('deleteProfile');
                 miDelete.onclick = function (event) {
                     event.preventDefault();
@@ -75,6 +66,47 @@ window.onload = function () {
     }
 
 
+
+    var miHome = document.getElementById('home');
+    miHome.onclick = function (event) {
+        event.preventDefault();
+        fetch('pdfAdmin.php')
+            .then(response => response.text())
+            .then(data => {
+
+                var contenido = document.getElementById('profile');
+                contenido.innerHTML = "";
+                contenido.innerHTML = data;
+                pdfupload();
+
+            })
+    }
+
+
+
+    function pdfupload() {
+
+        //------subir pdf-----
+        var miUpload = document.getElementById('pdfupload');
+        miUpload.onclick = function (event) {
+            event.preventDefault();
+            fetch('pdfuploader.php')
+                .then(response => response.text())
+                .then(data => {
+                    var contenido = document.getElementById('profile');
+                    contenido.innerHTML = "";
+                    contenido.innerHTML = data;
+
+                    var miBtn = document.getElementById('btn_enviar');
+                    miBtn.onchange = function (event) {
+                    mifichero= document.getElementById('btn_enviar').files[0].name;
+                    console.log(mifichero);
+                    }
+
+
+                })
+        }
+    }
 
 
 

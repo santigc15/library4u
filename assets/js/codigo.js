@@ -100,7 +100,9 @@ window.onload = function () {
                     var miBtn = document.getElementById('btn_enviar');
                     miBtn.onchange = function (event) {
                     mifichero= document.getElementById('btn_enviar').files[0].name;
-                    console.log(mifichero);
+                    miTexto = document.getElementById('texto');
+                    miTexto.innerText = "File to upload: "+mifichero;
+                    
                     }
 
 

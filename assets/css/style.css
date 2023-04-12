@@ -22,19 +22,22 @@ body {
 header {
     height: 32vh;
 }
+
 .header-logo {
     position: relative;
     top: 4vh;
     background-size: cover;
 }
+
 .admin {
     display: flex;
     justify-content: center;
 }
 
 .hadmin {
-    margin:0 10px;
+    margin: 0 10px;
 }
+
 .header-logo img {
     display: flex;
     margin: 0 auto;
@@ -45,7 +48,7 @@ header {
 }
 
 .header-logo img:hover {
-    box-shadow: 0 0 10px 5px rgb(107, 160, 72,0.7);
+    box-shadow: 0 0 10px 5px rgb(107, 160, 72, 0.7);
 }
 
 
@@ -63,7 +66,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 1px solid #ccc;   
+    border: 1px solid #ccc;
     box-shadow: 2px 2px 5px #ccc;
 }
 
@@ -90,7 +93,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 1px solid #ccc;   
+    border: 1px solid #ccc;
     box-shadow: 2px 2px 5px #ccc;
 }
 
@@ -151,6 +154,7 @@ section {
     font-size: 1.3em;
     margin: 10px 10px;
 }
+
 .modify-button {
     padding: 10px 20px;
     font-size: 1.3em;
@@ -172,16 +176,16 @@ button {
     border-radius: 50vmin;
     margin: 0px 0px;
     cursor: pointer;
-    border: 1px solid #ccc;   
+    border: 1px solid #ccc;
     box-shadow: 2px 2px 5px #ccc;
     text-align: center;
     transition: box-shadow 0.3s ease-in-out;
 }
 
 button:hover {
-    box-shadow: 0 0 10px 5px rgb(107, 160, 72,0.7);
+    box-shadow: 0 0 10px 5px rgb(107, 160, 72, 0.7);
     background: linear-gradient(to right, #206dc5, #54b3d8);
-    
+
 }
 
 /*-------------------Formulario Registro-----------------*/
@@ -206,7 +210,7 @@ form {
     width: 100%;
     padding: 20px;
     border-radius: 5vmin;
-    border: 1px solid #ccc;   
+    border: 1px solid #ccc;
     box-shadow: 2px 2px 5px #ccc;
     opacity: 0.9;
     background: linear-gradient(to right, #54b3d8, #206dc5);
@@ -274,37 +278,85 @@ input::placeholder {
     font-weight: bold;
 }
 
-#yesbtn, #nobtn {
-    margin-top:2vmin;
+#yesbtn,
+#nobtn {
+    margin-top: 2vmin;
 }
+
 .one {
     margin: 0 auto;
 }
 
 
 
-p#texto{
-	text-align: center;
-	color:white;
+p#texto {
+    position: relative;
+    display: flex;
+    color: white;
+    top:30%;
+    margin:0 auto;
+    font-weight: bold;
+
 }
 
-div#div_file{
-	position:relative;
-	margin:50px;
-	padding:10px;
-	width:150px;
-	background-color: #2499e3;
-	border-radius:5px;
-	box-shadow:0px 3px 0px #1a71a9;
+div#div_file {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 40%;
+    background-color: #1485ca;
+    border-radius: 3vmin;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px #ccc;
 }
 
-input#btn_enviar{
-	position:absolute;
-	top:0px;
-	left:0px;
-	right:0px;
-	bottom:0px;
-	width:100%;
-	height:100%;
-	opacity: 0;
+input#btn_enviar {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    border: 0;
+
 }
+
+
+
+div#div_file:hover {
+    background: linear-gradient(to right, #88e24d, #0a4d04);
+    box-shadow: 0 0 10px 5px rgb(107, 160, 72, 0.7);
+}
+
+.two {
+    padding: 15px;
+    height: 20vh;
+    border: 0;
+}
+
+
+input#btn_charge {
+    width: 100%;
+    height:20%;
+    padding: 0;
+    background: linear-gradient(to right, #6ba048, #3bb930);
+    color: whitesmoke;
+    border: none;
+    border-radius: 5vmin;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px #ccc;
+}
+form input#btn_charge[type="submit"]:hover {
+    background: linear-gradient(to right, #88e24d, #0a4d04);
+    box-shadow: 0 0 10px 5px rgb(107, 160, 72, 0.7);
+}
+
+

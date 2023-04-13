@@ -8,11 +8,11 @@ if (!isset($_SESSION["username"])) {
 
 
 <div class="form-container">
-    <form action="upload.php" method="post" enctype="multipart/form-data" class="two">
+    <form action="../models/upload.php" method="post" enctype="multipart/form-data" class="two">
 
         <div id="div_file">
             <p id="texto">Add file</p>
-            <input type="file" id="btn_enviar" required>
+            <input type="file" name="archivo" id="btn_enviar" accept="application/pdf" required>
         </div>
 
         <input type="submit" value="Submit File" id="btn_charge">

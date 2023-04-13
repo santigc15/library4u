@@ -7,6 +7,8 @@ if (!isset($_SESSION["username"])) {
 
 require_once("conexion.php");
 require_once("Libros.php");
+var_dump($_FILES["archivo"]);
+exit;
 
 
 $database = new Conexion();

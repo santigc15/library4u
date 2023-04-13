@@ -1,14 +1,38 @@
 <?php
 session_start();
-if (!isset($_SESSION["username"])) {
+if ((!isset($_SESSION["username"]))||(!isset($_POST['submitted']))) {
 
     header("Location: ../");
 }
 
+
 require_once("conexion.php");
 require_once("Libros.php");
-var_dump($_FILES["archivo"]);
-exit;
+require_once("Pdfvalidate.php");
+
+
+  // Obtenemos la información del archivo
+  $filename = $_FILES['archivo']['name'];
+  $temporalpath = $_FILES['archivo']['tmp_name'];
+
+
+  // Movemos el archivo a la ruta de destino
+  $pdfpath = PDFPATH . $filename;
+
+  if (move_uploaded_file( $temporalpath, $pdfpath)) {
+    // Archivo subido exitosamente
+    echo "El archivo \"$filename\" se ha subido correctamente.";
+} else {
+    echo "Error al subir el archivo.";
+  }
+   
+$validate= new Pdfvalidate();
+$result=$validate->pdfvalidation($pdfpath);
+
+
+
+
+
 
 
 $database = new Conexion();

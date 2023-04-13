@@ -15,7 +15,7 @@ if (!isset($_SESSION["username"])) {
             <input type="file" name="archivo" id="btn_enviar" accept="application/pdf" required>
         </div>
 
-        <input type="submit" value="Submit File" id="btn_charge">
+        <input type="submit" name="submitted" value="Submit File" id="btn_charge">
     </form>
 </div>
 

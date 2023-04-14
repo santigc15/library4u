@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2023 at 05:08 PM
+-- Generation Time: Apr 14, 2023 at 02:29 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -29,20 +29,12 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `libros` (
   `id` int(5) NOT NULL,
-  `titulo` varchar(255) NOT NULL,
-  `genero` varchar(255) NOT NULL,
+  `filename` varchar(255) NOT NULL,
   `userid` int(8) NOT NULL,
-  `fecha_subida` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `filesize` int(21) NOT NULL,
+  `date_uploaded` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `downloads` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
-
---
--- Dumping data for table `libros`
---
-
-INSERT INTO `libros` (`id`, `titulo`, `genero`, `userid`, `fecha_subida`) VALUES
-(1, 'la rosa amarilla', 'novela', 10, '2023-04-02 01:57:11'),
-(2, 'el resplandor', 'novela', 13, '2023-04-02 01:57:49'),
-(3, 'php para primerizos', 'programacion', 13, '2023-04-02 01:58:29');
 
 -- --------------------------------------------------------
 
@@ -69,7 +61,7 @@ INSERT INTO `usuarios` (`id`, `username`, `email`, `telefono`, `password`, `perf
 (18, 'Lorenagomez', 'lorena@gmail.com', '626585652', '$2y$10$biT6gzPD0Rf5WznBtGNodeEYzQFUv.pTxhf3.ilOCypUUs5NArxdO', 1),
 (19, 'Claudiagamez', 'claudia@gmail.com', '686123478', '$2y$10$p55JQr0l3UYYn8lmBqavjO572.OdgfKDBarG06yPh6bFHR0YU9l5O', 1),
 (31, 'carlotaperez', 'carlota@gmail.com', '654321987', '$2y$10$7G.lNu9n2p1Mts8Ve2TfFeqyoNL1MDrk5Kj2leU4vlG/Q/BK4UEQS', 1),
-(34, 'auroramartin', 'aurora@gmail.com', '654159753', '$2y$10$qh23Yn01jwSXOiWHz4TrweZoO3y24SpTG2SxnZEQwpHhF/WE1Rmge', 1);
+(35, 'auroramartin', 'aurora@gmail.com', '625484546', '$2y$10$LqXnLH/B3lPeM43bR6FeE.5pfm9ZFsQ5xUICb1.BSrb6T0fswQzMS', 1);
 
 --
 -- Indexes for dumped tables
@@ -95,13 +87,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `libros`
 --
 ALTER TABLE `libros`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

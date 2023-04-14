@@ -1,68 +1,89 @@
 <?php
 require_once("conexion.php");
 
-class Libro {
-
-protected $dbh;
-protected $titulo;
-protected $genero;
-protected $userid;
-protected $id;
-
-public function __construct($dbh)
+class Libro
 {
-    $this->dbh=$dbh;
 
-}
+    protected $dbh;
+    protected $filename;
+    protected $filesize;
+    protected $userid;
+    protected $id;
 
-public function insertLibro ($titulo,$genero,$userid){
-    $this->titulo=$titulo;
-    $this->genero=$genero;
-    $this->userid=$userid;
-  
+    public function __construct($dbh)
+    {
+        $this->dbh = $dbh;
+    }
 
-    $stmt = $this->dbh->prepare("INSERT INTO libros (`titulo`, `genero`, `userid`) VALUES (:titulo, :genero, :userid)");
-    $stmt->bindParam(':titulo', $this->titulo);
-    $stmt->bindParam(':genero', $this->genero);
-    $stmt->bindParam(':userid', $this->userid);
-
-
-    $stmt->execute();
-
-}
-
-public function getAllLibros (){
-$stmt = $this->dbh->query('SELECT * FROM libros');
-$registros = $stmt->fetchAll(PDO::FETCH_ASSOC);
-return $registros;
-}
-
-public function deleteLibroById ($id){
-    $this->id=$id;
-    $stmt = $this->dbh->prepare("DELETE FROM libros WHERE id=:id");
-    $stmt->bindParam(':id', $this->id);
-    $stmt->execute();
-}
-
-//--------------------updates---------------------------
-
-public function updateTitulo ($id,$titulo){
-    $this->id=$id;
-    $this->titulo=$titulo;
-    $stmt = $this->dbh->prepare("UPDATE libros SET titulo = :titulo WHERE id = :id");
-    $stmt->bindParam(':id', $this->id);
-    $stmt->bindParam(':titulo', $this->titulo);
-    $stmt->execute();
-}
-
-public function updateGenero ($id,$genero){
-    $this->id=$id;
-    $this->genero=$genero;
-    $stmt = $this->dbh->prepare("UPDATE libros SET genero = :genero WHERE id = :id");
-    $stmt->bindParam(':id', $this->id);
-    $stmt->bindParam(':genero', $this->genero);
-    $stmt->execute();
-}
+    public function insertLibro($filename, $filesize, $userid)
+    {
+        $this->filename = $filename;
+        $this->filesize = $filesize;
+        $this->userid = $userid;
 
 
+        $stmt = $this->dbh->prepare("INSERT INTO libros (`filename`, `filesize`, `userid`) VALUES (:filename, :filesize, :userid)");
+        $stmt->bindParam(':filename', $this->filename);
+        $stmt->bindParam(':filesize', $this->filesize);
+        $stmt->bindParam(':userid', $this->userid);
+
+
+        $stmt->execute();
+    }
+
+    public function getAllLibros()
+    {
+        $stmt = $this->dbh->query('SELECT * FROM libros');
+        $registros = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $registros;
+    }
+
+    public function deleteLibroById($id)
+    {
+        $this->id = $id;
+        $stmt = $this->dbh->prepare("DELETE FROM libros WHERE id=:id");
+        $stmt->bindParam(':id', $this->id);
+        $stmt->execute();
+    }
+
+    //--------------------updates---------------------------
+
+    public function updateTitulo($id, $filename)
+    {
+        $this->id = $id;
+        $this->filename = $filename;
+        $stmt = $this->dbh->prepare("UPDATE libros SET filename = :filename WHERE id = :id");
+        $stmt->bindParam(':id', $this->id);
+        $stmt->bindParam(':filename', $this->filename);
+        $stmt->execute();
+    }
+
+    public function updateGenero($id, $filesize)
+    {
+        $this->id = $id;
+        $this->filesize = $filesize;
+        $stmt = $this->dbh->prepare("UPDATE libros SET filesize = :filesize WHERE id = :id");
+        $stmt->bindParam(':id', $this->id);
+        $stmt->bindParam(':filesize', $this->filesize);
+        $stmt->execute();
+    }
+
+    public function updateDownloadsById($id)
+    {
+        $this->id = $id;
+        $stmt = $this->dbh->prepare("SELECT downloads FROM libros WHERE id = :id");
+        $stmt->bindParam(':id', $this->id);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($result as $row) {
+            // Acceder a los valores de los campos
+            $downloads = $row['downloads'];
+        }
+        $downloads++;
+        $stmt = $this->dbh->prepare("UPDATE libros SET downloads = :downloads WHERE id = :id");
+        $stmt->bindParam(':id', $this->id);
+        $stmt->bindParam(':downloads', $downloads);
+        $stmt->execute();
+    }
 }

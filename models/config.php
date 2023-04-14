@@ -5,7 +5,7 @@ define('DB_NAME','libreria');
 define('DB_USER','root');
 define('DB_PASS','');
 define('PDFPATH','C:/xampp/htdocs/library/assets/pdffiles/');
-define('COVERPATH','C:/xampp/htdocs/library/assets/coverfiles/');
+
 
 
 

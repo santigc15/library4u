@@ -8,7 +8,7 @@ if (!isset($_SESSION["username"])) {
 
 
 <div class="form-container">
-    <form action="../models/upload.php" method="post" enctype="multipart/form-data" class="two">
+    <form enctype="multipart/form-data" class="two" id="formulario">
 
         <div id="div_file">
             <p id="texto">Add file (up to 25 Mb )</p>

@@ -8,7 +8,6 @@ define('PDFPATH','C:/xampp/htdocs/library/assets/pdffiles/');
 
 
 
-
 //ruta app
 define('PATH_APP', dirname(dirname(__FILE__)));
 

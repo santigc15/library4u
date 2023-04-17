@@ -28,7 +28,7 @@ if (!isset($_SESSION["username"])) {
         <div class="header-logo admin">
             <a href="" id="enlace" class="hadmin"><img src="../assets/img/profile.jpg" alt="logo" title="PROFILE" class="logo"></a>
             <a href="" id="home" class="hadmin"><img src="../assets/img/home.jpg" alt="logo" title="HOME" class="logo"></a>
-            <a href="http://localhost/library/models/logout.php" class="hadmin"><img src="../assets/img/logout.jpg" alt="logo" title="LOGOUT" class="logo"></a>
+            <a href="../models/logout.php" class="hadmin"><img src="../assets/img/logout.jpg" alt="logo" title="LOGOUT" class="logo"></a>
         </div>
 
         <div class="header-container">

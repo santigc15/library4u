@@ -129,8 +129,8 @@ window.onload = function () {
                 .then(res => res.json())
                 .then(data => {
 
-                    if (data === "Error tamaño excesivo") {
-                        alert("TAMAÑO EXCESIVO");
+                    if (data == "error") {
+                        alert("TAMANO EXCESIVO");
                         pdfupload();
                     } else {
                         alert("TODO OK");

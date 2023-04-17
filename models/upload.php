@@ -5,8 +5,8 @@ if (!isset($_SESSION["username"])) {
   header("Location: ../");
   
 }elseif ($_FILES['archivo']['size']>26214400){
-
-  echo json_encode("Error tamaño excesivo");
+$mensaje="error";
+  echo json_encode($mensaje);
 
 }else{
   require_once("conexion.php");

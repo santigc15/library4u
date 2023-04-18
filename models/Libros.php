@@ -9,6 +9,7 @@ class Libro
     protected $filesize;
     protected $userid;
     protected $id;
+    
 
     public function __construct($dbh)
     {

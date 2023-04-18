@@ -11,6 +11,16 @@ window.onload = function () {
 
 
 
+                var miView = document.getElementById('pdfview');
+                miView.onclick = function (event) {
+                    event.preventDefault();
+                    pdfview();
+                }
+
+
+
+
+
                 var miUpload = document.getElementById('pdfupload');
                 miUpload.onclick = function (event) {
                     event.preventDefault();
@@ -140,6 +150,42 @@ window.onload = function () {
                 })
 
         })
+
+    }
+
+
+    function pdfview() {
+
+
+        //------obtener todos los pdf-----              
+        fetch('../models/getpdfs.php')
+            .then(response => response.json())
+            .then(data => {
+
+
+                var contenido = document.getElementById('profile');
+                contenido.innerHTML = `
+                <div id="wrapper">
+                  <div class="grid-container" id="grid-container">
+
+                  </div>
+                </div>`
+                var contenido = document.getElementById('grid-container');
+                for (let valor of data) {
+                    noextensionname=(valor.filename).split('.');
+                    noextensionname.pop();
+                    contenido.innerHTML +=`
+                    <div class="grid-item">
+                    <div class="filename">`+noextensionname+`</div>
+                    <div class="fileinfo">
+                        <div class="filesize">Size: `+((valor.filesize/1024)/1024).toFixed(2)+` Mb</div>
+                        <div class="space"></div>
+                        <div class="downloads">downloads: `+valor.downloads+`</div>
+                    </div>
+                    <button class="botondown">Download</button>
+                    </div>`
+                }
+            })
 
     }
 

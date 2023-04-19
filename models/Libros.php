@@ -10,6 +10,7 @@ class Libro
     protected $userid;
     protected $id;
     protected $registro;
+    protected $downloads;
 
     public function __construct($dbh)
     {
@@ -81,19 +82,11 @@ class Libro
         $stmt->execute();
     }
 
-    public function updateDownloadsById($id)
+    public function updateDownloadsById($id,$downloads)
     {
         $this->id = $id;
-        $stmt = $this->dbh->prepare("SELECT downloads FROM libros WHERE id = :id");
-        $stmt->bindParam(':id', $this->id);
-        $stmt->execute();
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $this->downloads = $downloads;
 
-        foreach ($result as $row) {
-            // Acceder a los valores de los campos
-            $downloads = $row['downloads'];
-        }
-        $downloads++;
         $stmt = $this->dbh->prepare("UPDATE libros SET downloads = :downloads WHERE id = :id");
         $stmt->bindParam(':id', $this->id);
         $stmt->bindParam(':downloads', $downloads);

@@ -184,8 +184,9 @@ window.onload = function () {
                         <div class="downloads">downloads: `+ valor.downloads + `</div>
                     </div>
                     <form action="../models/download.php" method="post" id="form2" class="none">
-                    <input type="hidden" name="idlibro" value="`+ valor.id + `" id="miValueId" class="hiddenclass">
-                    <button type="submit" class="botondown" id="down_botton">Download</button>
+                    <input type="hidden" name="id" value="`+ valor.id + `"  class="hiddenclass">
+                    <input type="hidden" name="downloads" value="`+ valor.downloads + `"  class="hiddenclass">
+                    <button type="submit" name="submitted" class="botondown" id="down_botton">Download</button>
                     </form>
                     </div>`
 

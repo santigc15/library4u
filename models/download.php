@@ -1,12 +1,14 @@
 <?php
 session_start();
 
-if ((!isset($_SESSION["username"]))||(!isset($_POST['idlibro']))) {
+if ((!isset($_SESSION["username"]))||(!isset($_POST['submitted']))) {
   header("Location: ../");
   
 };
 
-$id=$_POST['idlibro'];
+$id=$_POST['id'];
+$downloads=$_POST['downloads'];
+$downloads++;
 
 
 
@@ -18,9 +20,11 @@ $dbh = $database->getConnection();
 
 $user = new Libro($dbh);
 $title=$user->getLibroById($id);
-
-downloadfile($titulo);
+$updatedown=$user->updateDownloadsById($id,$downloads);
 $dbh = $database->closeConnection();
+downloadfile($title);
+
+
 
 
 function downloadfile($title){
@@ -37,9 +41,10 @@ $content_type = 'application/pdf';
 header('Content-Type: ' . $content_type);
 header('Content-Disposition: attachment; filename="' . $download_name . '"');
 header('Content-Length: ' . filesize($fullpath));
-
+ob_clean();
 // Enviamos el contenido del archivo al navegador
 readfile($fullpath);
-
+header("Location: ../");
+exit;
 }
 

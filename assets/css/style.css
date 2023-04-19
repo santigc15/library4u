@@ -453,7 +453,7 @@ form input#btn_charge[type="submit"]:hover {
 
 .botondown {
     padding: 0;
-    margin: 0 auto;
+    margin-left:22px;
     height: 22px;
     min-height: 22px;
     max-height: 22px;
@@ -487,4 +487,8 @@ form input#btn_charge[type="submit"]:hover {
     padding: 10px 20px;
     font-size: 1.3em;
     margin: 10px 10px;
+}
+
+.none {
+    all:unset;
 }

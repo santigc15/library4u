@@ -16,6 +16,8 @@ if (isset($_POST["login"])) {
     $validate = new Usuario($dbh);
     $validate->checkUser($dbh, $username, $password);
 
+    $dbh = $database->closeConnection();
+
 
     header("Location: ../views/admin.php");
 } else {

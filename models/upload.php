@@ -31,6 +31,7 @@ $mensaje="error";
   
   $usuario = new Libro($dbh);
   $usuario->insertLibro($filename,$filesize,$userid);
+  $dbh = $database->closeConnection();
   echo json_encode("Archivo subido");
 }
 

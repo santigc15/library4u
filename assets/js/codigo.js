@@ -161,6 +161,7 @@ window.onload = function () {
         fetch('../models/getpdfs.php')
             .then(response => response.json())
             .then(data => {
+                
 
 
                 var contenido = document.getElementById('profile');
@@ -172,22 +173,32 @@ window.onload = function () {
                 </div>`
                 var contenido = document.getElementById('grid-container');
                 for (let valor of data) {
-                    noextensionname=(valor.filename).split('.');
+                    noextensionname = (valor.filename).split('.');
                     noextensionname.pop();
-                    contenido.innerHTML +=`
+                    contenido.innerHTML += `
                     <div class="grid-item">
-                    <div class="filename">`+noextensionname+`</div>
+                    <div class="filename">`+ noextensionname + `</div>
                     <div class="fileinfo">
-                        <div class="filesize">Size: `+((valor.filesize/1024)/1024).toFixed(2)+` Mb</div>
+                        <div class="filesize">Size: `+ ((valor.filesize / 1024) / 1024).toFixed(2) + ` Mb</div>
                         <div class="space"></div>
-                        <div class="downloads">downloads: `+valor.downloads+`</div>
+                        <div class="downloads">downloads: `+ valor.downloads + `</div>
                     </div>
-                    <button class="botondown">Download</button>
+                    <form action="../models/descargar.php" method="post" id="form2" class="none">
+                    <input type="hidden" name="idlibro" value="`+ valor.id + `" id="miValueId" class="hiddenclass">
+                    <button type="submit" class="botondown" id="down_botton">Download</button>
+                    </form>
                     </div>`
+
                 }
+
+
             })
 
     }
+
+
+
+
 
 
 }

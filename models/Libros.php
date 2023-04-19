@@ -9,7 +9,7 @@ class Libro
     protected $filesize;
     protected $userid;
     protected $id;
-    
+    protected $registro;
 
     public function __construct($dbh)
     {
@@ -37,6 +37,18 @@ class Libro
         $stmt = $this->dbh->query('SELECT * FROM libros');
         $registros = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $registros;
+    }
+
+    public function getLibroById($id)
+    {
+        $this->id = $id;
+
+        $stmt = $this->dbh->prepare("SELECT filename FROM libros WHERE id=:id");
+        $stmt->bindParam(':id', $this->id);
+        $stmt->execute();
+        $registro = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $registro;
+        
     }
 
     public function deleteLibroById($id)

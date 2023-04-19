@@ -14,6 +14,7 @@ $dbh = $database->getConnection();
 $usuario = new Libro($dbh);
 $listado=$usuario->getAllLibros();
 
+$dbh = $database->closeConnection();
 echo json_encode($listado);
 
 

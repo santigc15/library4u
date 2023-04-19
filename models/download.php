@@ -16,19 +16,19 @@ require_once("Libros.php");
 $database = new Conexion();
 $dbh = $database->getConnection();
 
-$usuario = new Libro($dbh);
-$titulo=$usuario->getLibroById($id);
+$user = new Libro($dbh);
+$title=$user->getLibroById($id);
 
 downloadfile($titulo);
 $dbh = $database->closeConnection();
 
 
-function downloadfile($titulo){
+function downloadfile($title){
 // Ruta del archivo que se va a descargar
-$fullpath = PDFPATH.$titulo['filename'];
+$fullpath = PDFPATH.$title['filename'];
 
 // Nombre con el que se descargará el archivo
-$download_name = strtolower($titulo['filename']);
+$download_name = strtolower($title['filename']);
 
 // Tipo de contenido que se va a descargar
 $content_type = 'application/pdf';

@@ -22,6 +22,8 @@ $user = new Libro($dbh);
 $title=$user->getLibroById($id);
 $updatedown=$user->updateDownloadsById($id,$downloads);
 $dbh = $database->closeConnection();
+
+
 downloadfile($title);
 
 
@@ -44,7 +46,5 @@ header('Content-Length: ' . filesize($fullpath));
 ob_clean();
 // Enviamos el contenido del archivo al navegador
 readfile($fullpath);
-header("Location: ../");
-exit;
 }
 

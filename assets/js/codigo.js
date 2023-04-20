@@ -94,66 +94,6 @@ window.onload = function () {
         pdfAdmin();
     }
 
-
-
-    function pdfupload() {
-
-        //------subir pdf-----              
-        fetch('pdfuploader.php')
-            .then(response => response.text())
-            .then(data => {
-                var contenido = document.getElementById('profile');
-                contenido.innerHTML = "";
-                contenido.innerHTML = data;
-
-                var miBtn = document.getElementById('btn_enviar');
-                miBtn.onchange = function (event) {
-                    mifichero = document.getElementById('btn_enviar').files[0].name;
-                    miTexto = document.getElementById('texto');
-                    miTexto.innerText = "File: " + mifichero;
-                    sendForm();
-                }
-
-
-            })
-
-    }
-
-
-
-
-    function sendForm() {
-        var formulario = document.getElementById('formulario');
-        formulario.addEventListener('submit', function (e) {
-            e.preventDefault();
-            console.log("aqui estamos");
-
-            var datos = new FormData(formulario);
-            console.log(datos.get('archivo'));
-            console.log(datos.get('submitted'))
-
-            fetch('../models/upload.php', {
-                method: 'POST',
-                body: datos
-            })
-                .then(res => res.json())
-                .then(data => {
-
-                    if (data == "error") {
-                        alert("TAMANO EXCESIVO");
-                        pdfupload();
-                    } else {
-                        alert("TODO OK");
-                        pdfAdmin();
-                    }
-
-                })
-
-        })
-
-    }
-
-
     function pdfview() {
 
 
@@ -192,10 +132,67 @@ window.onload = function () {
 
                 }
 
+            })
+
+    }
+
+    function pdfupload() {
+
+        //------subir pdf-----              
+        fetch('pdfuploader.php')
+            .then(response => response.text())
+            .then(data => {
+                var contenido = document.getElementById('profile');
+                contenido.innerHTML = "";
+                contenido.innerHTML = data;
+
+                var miBtn = document.getElementById('btn_enviar');
+                miBtn.onchange = function (event) {
+                    mifichero = document.getElementById('btn_enviar').files[0].name;
+                    miTexto = document.getElementById('texto');
+                    miTexto.innerText = "File: " + mifichero;
+                    sendForm();
+                }
+
 
             })
 
     }
+
+
+    function sendForm() {
+        var formulario = document.getElementById('formulario');
+        formulario.addEventListener('submit', function (e) {
+            e.preventDefault();
+            console.log("aqui estamos");
+
+            var datos = new FormData(formulario);
+            console.log(datos.get('archivo'));
+            console.log(datos.get('submitted'))
+
+            fetch('../models/upload.php', {
+                method: 'POST',
+                body: datos
+            })
+                .then(res => res.json())
+                .then(data => {
+
+                    if (data == "error") {
+                        alert("TAMANO EXCESIVO");
+                        pdfupload();
+                    } else {
+                        alert("TODO OK");
+                        pdfAdmin();
+                    }
+
+                })
+
+        })
+
+    }
+
+
+
 
 
 

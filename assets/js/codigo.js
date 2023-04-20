@@ -28,6 +28,14 @@ window.onload = function () {
                 }
 
 
+
+                var miManage = document.getElementById('pdfmanage');
+                miManage.onclick = function (event) {
+                    event.preventDefault();
+                    pdfmanage();
+                }
+
+
             });
     }
 
@@ -101,7 +109,7 @@ window.onload = function () {
         fetch('../models/getpdfs.php')
             .then(response => response.json())
             .then(data => {
-                
+
 
 
                 var contenido = document.getElementById('profile');
@@ -188,6 +196,46 @@ window.onload = function () {
                 })
 
         })
+
+    }
+
+    function pdfmanage() {
+
+
+        //------obtener todos los pdf-----              
+        fetch('../models/getpdfsbyuser.php')
+            .then(response => response.json())
+            .then(data => {
+
+                var contenido = document.getElementById('profile');
+                contenido.innerHTML = `
+                <div id="wrapper">
+                  <div class="grid-container" id="grid-container">
+
+                  </div>
+                </div>`
+                var contenido = document.getElementById('grid-container');
+                for (let valor of data) {
+                    noextensionname = (valor.filename).split('.');
+                    noextensionname.pop();
+                    contenido.innerHTML += `
+                    <div class="grid-item">
+                    <div class="filename">`+ noextensionname + `</div>
+                    <div class="fileinfo">
+                        <div class="filesize">Size: `+ ((valor.filesize / 1024) / 1024).toFixed(2) + ` Mb</div>
+                        <div class="space"></div>
+                        <div class="downloads">downloads: `+ valor.downloads + `</div>
+                    </div>
+                    <form action="../models/erasefile.php" method="post" id="form2" class="none">
+                    <input type="hidden" name="id" value="`+ valor.id + `"  class="hiddenclass">
+                    <input type="hidden" name="filename" value="`+ noextensionname + `"  class="hiddenclass">
+                    <button type="submit" name="submitted" class="botondown" id="down_botton">Erase file</button>
+                    </form>
+                    </div>`
+
+                }
+
+            })
 
     }
 

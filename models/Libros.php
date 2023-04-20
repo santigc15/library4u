@@ -40,6 +40,16 @@ class Libro
         return $registros;
     }
 
+    public function getAllLibrosByUser($userid)
+    {
+        $this->userid = $userid;
+        $stmt = $this->dbh->prepare("SELECT * FROM libros WHERE userid=:userid");
+        $stmt->bindParam(':userid', $this->userid);
+        $stmt->execute();
+        $registros = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $registros;
+    }
+
     public function getLibroById($id)
     {
         $this->id = $id;

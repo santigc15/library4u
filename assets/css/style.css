@@ -374,7 +374,7 @@ form input#btn_charge[type="submit"]:hover {
 
 /* Estilos de cada cuadrícula */
 .grid-item {
-
+    max-width: 350px;
     border-radius: 4vmin;
     background: linear-gradient(to right, #54b3d8, #206dc5);
     opacity: 0.9;

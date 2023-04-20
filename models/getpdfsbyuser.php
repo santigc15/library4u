@@ -6,20 +6,18 @@ if (!isset($_SESSION["username"])) {
   
 }
 
+
+$userid=$_SESSION["id"];
+
+
 require_once("conexion.php");
 require_once("Libros.php");
 
 $database = new Conexion();
 $dbh = $database->getConnection();
 
-$usuario = new Libro($dbh);
-$listado=$usuario->getAllLibros();
+$user = new Libro($dbh);
+$listado=$user->getAllLibrosByUser($userid);
 
 $dbh = $database->closeConnection();
 echo json_encode($listado);
-
-
-
-
-
-
